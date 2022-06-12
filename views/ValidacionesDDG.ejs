@@ -1,0 +1,247 @@
+<!--VISTA USADA PARA QUE EL COORDINADOR PUEDA VALIDAR UNA SOLICITUD-->
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include ('partials/head.ejs') %>
+<title><%- title %></title>
+
+<body>
+    <%- include ('partials/header.ejs') %>
+
+    <form class="content" id="formularioV" action="/Validaciones/<%- CURPsolicitante.CURP %>" method="post" name="doctoradoForm" enctype="multipart/form-data"> 
+        <div class="center">
+            <div class="tabs" onclick="cambiarPestaña(1)" id="tabs1">
+                <h3>Datos Generales</h3>
+                <div class="bodyTabs"></br></br>
+                    <fieldset class="cajaFormInt">
+                        <legend><b>Datos Personales</b></legend></br>
+                            <div class="subForm">
+                                <div class="subFormInt">
+                                    <input class="tex" id ="apellidoP" type="text" value="<%= CURPsolicitante.apellidoP %>" name="apellidoP" readonly/>
+                                    <label class="labels">Apellido Paterno</label>
+                                </div>
+                                <div class="subFormInt">
+                                    <input class="tex" id ="apellidoM" type="text" value="<%= CURPsolicitante.apellidoM %>" name="apellidoM" readonly/>
+                                    <label class="labels">Apellido Materno</label>
+                                </div>
+                                <div class="subFormInt">
+                                    <input class="tex" id ="nombre123" type="text" value="<%= CURPsolicitante.nombres %>" name="nombres" readonly/>
+                                    <label class="labels">Nombres (s)</label>
+                                </div>
+                            </div></br>
+                            <div class="subForm">
+                                <div class="subFormInt" id="datei_">
+                                    <p class="date_" id ="fechaNac" type="date" class="tex" placeholder="" name="fechaNac"><%= CURPsolicitante.fechaNac %></p>
+                                    <label class="labels">Fecha de nacimiento</label>
+                                </div>
+                                <div class="subFormInt">
+                                        <input class="tex" id ="lugarNac" type="text" value="<%= CURPsolicitante.lugarNac %>" name="lugarNac" readonly/>
+                                        <label class="labels">Lugar de nacimiento</label>
+                                </div>
+                                <div class="subFormInt">
+                                    <input class="tex" id ="nacionalidad" type="text" value="<%= CURPsolicitante.nacionalidad %>" name="nacionalidad" readonly> 
+                                    <label class="labels">Nacionalidad</label>
+                                </div>
+                                <div class="estCivil">
+                                    <select name="estadoCivil">
+                                        <option disabled value="Otro">Otro</option>
+                                        <option disabled value="Soltero(a)">Soltero(a)</option>
+                                        <option disabled value="Casado(a)">Casado(a)</option>
+                                        <option disabled value="Viudo(a)">Viudo(a)</option>
+                                        <option disabled value="Unión libre">Unión libre</option>
+                                        <option disabled value="Divorciado(a)">Divorciado(a)</option>
+                                        <option selected value="<%= CURPsolicitante.estadoCivil %>"><%= CURPsolicitante.estadoCivil %></option>
+                                    </select>
+                                    <label class="labels">Estado civil</label>
+                                </div>
+                            </div></br>
+                            <div class="subForm">
+                                <div class="subFormInt">
+                                    <input class="tex" id ="curp" oninput = "validarInput(this)" type="text" value="<%= CURPsolicitante.CURP %>" name="CURP" readonly/>
+                                    <pre id="resultado"></pre>
+                                    <label class="labels"> CURP</label>
+                                </div>   
+                            </div><br/>       
+                    </fieldset><br/>
+                    
+                    <fieldset class="cajaFormInt">
+                        <legend><b>Domicilio</b></legend><br />
+                        <div class="subForm">
+                            <div class="subFormInt">
+                                <input class="tex" type="text" value="<%= CURPsolicitante.calle %>" name="calle" readonly/>
+                                <label class="labels">Calle</label>
+                            </div>
+                            <div class="subFormIntN">
+                                <input class="texn" type="text" value="<%= CURPsolicitante.noExt %>" name="noExt" readonly/>
+                                <label class="labels">No. Ext</label>
+                            </div>
+                            <div class="subFormIntN">
+                                <input class="texn" type="text" value="<%= CURPsolicitante.noInt %>" name="noInt" readonly/>
+                                <label class="labels">No. Int</label>
+                            </div>                    
+                            <div class="subFormInt">
+                                <input class="tex" type="text" value="<%= CURPsolicitante.colonia %>" name="colonia" readonly/>
+                                <label class="labels">Colonia</label>
+                            </div>
+                            <div class="subFormIntCP">
+                                <input class="tex" type="text" value="<%= CURPsolicitante.CP %>" name="CP" readonly/>
+                                <label class="labels">Codigo Postal</label>
+                            </div>
+                            <div class="subFormInt">
+                                <input class="tex" type="text" value="<%= CURPsolicitante.municipio %>" name="municipio" readonly/>
+                                <label class="labels">Municipio</label>
+                            </div>
+                            <div class="subFormInt">
+                                <input class="tex" type="text" value="<%= CURPsolicitante.estado %>" name="estado" readonly/>
+                                <label class="labels">Estado</label>
+                            </div>
+                        </div><br/>
+                    </fieldset><br/>
+                    
+                    <fieldset class="cajaFormInt">
+                        <legend><b>Contacto</b></legend><br />
+                            <div class="subForm">
+                                <div class="subFormInt">
+                                    <input class="tex" id="telefono" type="tel" value="<%= CURPsolicitante.telefono %>" name="telefono" readonly/>
+                                    <label class="labels" >Teléfono</label>
+                                </div>
+                                <div class="subFormInt">
+                                    <input class="tex" id="email" type="email" value="<%= CURPsolicitante.email %>" name="email" readonly/>
+                                    <label class="labels">Correo electrónico</label>
+                                </div>
+                            </div><br/>
+                    </fieldset> 
+                        <%- include ('partials/footer.ejs') %>
+                </div>
+            </div>
+    
+<!-- Copiar al otro formulario \ -->
+            
+
+            <div class="tabs" onclick="cambiarPestaña(2)" id="tabs2">
+                <h3>Informacion General</h3>
+                <div class="bodyTabs"></br>
+                    <div class="subFormInt" id="formMaes">
+                        <input id="tx" type="text" value="<%= CURPsolicitante.doctorado %>" name="doctorado" readonly/>
+                        <label class="labels">Doctorado</label>
+                    </div><br />
+                    <fieldset class="cajaFormInt">
+                        <legend><b>Institución</b></legend><br />
+                        <div class="subForm">
+                            <div class="subFormInt">
+                                <input class="tex" type="text" value="<%= CURPsolicitante.institucionMaestria %>"
+                                    name="institucionMaestria" readonly />
+                                <label class="labels">Institución de Maestría</label>
+                            </div>
+                            <div class="subFormIntCP">
+                                <input class="tex" type="text" value="<%= CURPsolicitante.paisInst %>"
+                                    name="paisInst" readonly/>
+                                <label class="labels">País de la Institución</label>
+                            </div>
+                            <div class="subFormInt">
+                                <input class="tex" type="text" value="<%= CURPsolicitante.graduado %>" readonly/>
+                                <label class="labels">Graduado</label>
+                            </div>
+                            <div class="subFormInt">
+                                <input class="tex" type="text" value="<%= CURPsolicitante.posgrado %>" name="posgrado" readonly/>
+                                <label class="labels">Posgrado</label>
+                            </div>
+                        </div></br>
+                    </fieldset><br />
+
+                    <fieldset class="cajaFormInt">
+                        <legend><b>Experiencia</b></legend><br />
+                        <div class="subForm">
+                            <label class="labelsC">Experiencia profesional</label>
+                            <textarea class="texaC" placeholder=""
+                                name="expProfesional" readonly><%= CURPsolicitante.expProfesional %></textarea>
+                        </div><br />
+                        <div class="subForm">
+                            <label class="labelsC">Experiencia Docente</label>
+                            <textarea class="texaC" placeholder=""
+                                name="expDocente" readonly><%= CURPsolicitante.expDocente %></textarea>
+                        </div><br />
+                    </fieldset><br />
+
+                        <fieldset class="cajaFormInt"></br>
+                            <div class="subForm">
+                                <label class="labelsN" >¿Has asistido a los cursos propedéuticos de este Departamento
+                                    anteriormente?</label>
+                                <p><%= CURPsolicitante.check %></p>
+                                    
+
+
+                                <div class="subFormInt" id="año">
+                                    <input class="texn" type="tex" value="<%= CURPsolicitante.anho %>" name="anho" readonly/>
+                                    <label class="labels_">Año</label>
+                                </div>
+                                <div class="subFormInt">
+                                    <input class="tex" type="text"
+                                    value="<%= CURPsolicitante.lineaInves %>"
+                                        name="lineaInves" readonly/>
+                                    <label class="labels">Línea de investigación</label>
+                                </div>
+                            </div><br />
+
+                            <div class="subForm">
+                                <label class="labelsN">Motivación para integrarse al posgrado</label>
+                                <textarea class="texa" placeholder=""
+                                    name="motivacionPosg" readonly><%= CURPsolicitante.motivacionPosg %></textarea>
+                            </div><br />
+
+                            <div class="subForm">
+                                <div class="subFormInt">
+                                    <p>Funcion para mostrar el archivo CV </p>
+                                </div>
+                                <div class="subFormInt">
+                                    <p>Funcion para mostrar el archivo Investigacion </p>
+                                </div>
+
+                                <div class="subFormInt">
+                                    <input id="fechaSolicitud" name="fechaSolicitud" class="tex" value="<%= CURPsolicitante.fechaSolicitud %>" readonly />
+                                    <label class="labels">Fecha solicitud</label>
+                                </div>
+                                
+
+                                 <div class="subFormInt" name="firmaSolicitante">
+                                            <input class="tex" type="" value="<%= CURPsolicitante.firmaSolicitante %>" name="" readonly/>
+                                            <label class="labels">Firma Solicitante</label>
+                                        </div>
+                            </div>
+                        </fieldset>
+                        <%- include ('partials/footer.ejs') %>
+                </div>
+            </div>
+            
+            <div class="tabs" onclick="cambiarPestaña(3)" id="tabs3">
+                <h3>Validacion</h3>
+                    <div class="bodyTabs"></br>
+                        <fieldset class="cajaFormInt">
+                            <div class="subForm">
+                                    <div class="subFormInt">
+                                        <div class="estCivil">
+                                            <select name="status">
+                                                <option value="Sin validar">Sin validar</option>
+                                                <option value="Aceptada">Aceptar</option>
+                                                <option value="Rechazada">Rechazar</option>
+                                                <option value="Condicionada">Condicionar</option>
+                                            </select>
+                                        </div>
+                                        <label class="labels">Status</label>
+                                    </div>
+                                    <label id="comLabel">¿Comentarios?</label>
+                                    <textarea class="texaC" placeholder="Comentarios" name="comentario" id="comentario"></textarea>
+                                
+                            </div></br>
+                            <button class="btn" type="submit"  id="validacion">Enviar Validacion</button>
+                        </fieldset><br />
+
+                        <%- include ('partials/footer.ejs') %>
+                    </div>
+                </div>
+            </div>
+    </form>
+</body>
+<script type="text/javascript" src="../js/funcionesPestañas.js"></script>
+
+</html>

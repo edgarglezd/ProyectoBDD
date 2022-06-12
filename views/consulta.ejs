@@ -1,0 +1,41 @@
+
+<!-- //En este apartado nos va a servir para obtener los datos para la opción
+//de consultar el status de una solicitud -->
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include ('partials/head.ejs') %>
+<title><%- title %></title>
+
+<body>
+    <%- include ('partials/header.ejs') %> 
+    <%- include ('partials/nav.ejs') %>
+    <h1 style="text-align: center;">CONSULTA</h1> <!--Requiere de un inicio de sesion previo para verificar su CURP o id y sobre esta filtrar las solicitudes-->
+    <table class="table">
+
+        <tr class="header"> <!--se usa un if para saber si hay solicitudes -->
+            <%if (solicitud.length > 0) {%>
+          <th class="cell">CURP  </th>      
+          <th class="cell">Solicitud</th>
+          <th class="cell">CV    </th>     
+          <th class="cell">STATUS</th>
+          <th class="cell"></th>      
+        </tr>          
+                    <tr class="row">
+                    <td class="cell"></td> <%= solicitud.CURP %></td>    <!--se extraen los datos del archivo solicitantes.json-->
+                    <td class="cell"><%= solicitud.registro %></td>
+                    <td class="cell"> Aqui va nombre de archivo(s)</td>               
+                    <td class="cell"><%= solicitud.status %></td>
+                    </tr>                   
+            <%} else {%>
+                <h4 style="text-align: center;">Aun no hay solicitudes enviadas</h4>
+            <%}%>
+                </div>
+              </div>
+        </tr>        
+      </table>
+    <script type="text/javascript" src="../js/funcionesPestañas.js"></script>
+    <script type="text/javascript" src="../js/Validaciones.js"></script>
+</body>
+
+</html>

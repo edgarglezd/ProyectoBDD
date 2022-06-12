@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>BDD | Inicio</title>
+        <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
+        <link rel="stylesheet" href="css/estilosprincipal.css">
+        <link  href="css/estiloslogin.css" rel="stylesheet1">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700,800&display=swap" rel="stylesheet"> 
+    </head>
+    
+        <body>
+            <form class="content" id="formulario" method="POST" enctype="multipart/form-data">
+            <header>
+                <section class="textos-header">
+                    <div class="logo-principal"></div>
+                    <a href="#inicio"><img src="img/netflix.png"  alt="Inicio"></a>
+                    <h1>Pagina de consultas en la base de datos: NETFLIX</h1>
+                </section>
+                    <h1 style="text-align: justify-center; margin-top: -100px;">Consulta:</h1>
+
+                
+                <div class="wave" style="height: 90px; overflow: hidden;"><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
+                    <path d="M0.00,49.98 C150.00,150.00 349.20,-50.00 500.00,49.98 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill: #fff;"></path>
+                </svg>
+                </div>
+                <div class="container">
+                    <div class="child">
+                       
+                        <div class="form-group">
+                            <br><br><br><br><br>   
+                            <! <input id="_id" type="text" name="_id" placeholder="ID de la pelicula">     
+                            <input id="TITLE_NAME" type="text" name="TITLE_NAME" placeholder="Nombre de la pelicula"> 
+                            <input id="RELEASED" type="text" name="RELEASED" placeholder="Año de estreno">
+                            <input id="LANGUAGE" type="text" name="LANGUAGE" placeholder="Lenguaje">
+                            <input id="RATING" type="text" name="RATING" placeholder="Raiting">
+                        </div>
+                    
+                        <div class="form-group">
+                            <button id="guardar" type="submit" class="form" onclick = "this.form.action = '/ConsultaMongo'" value="'/ConsultaMongo'">Enviando</button>
+                            
+                        </div>
+                   
+                        <div class="row h-0 justify-content-center align-items-center"></div>
+                        <div>
+                            <p id="mensaje" style="text-align: center; color:black"></p>
+                        </div>
+                    </div>
+                </div>
+        </header>
+        
+            <main>
+
+                
+            </main>
+            <footer id="contacto">
+                <h2 class="titulo-contact">Equipo: 3</h2>
+                <div class="contenedor-footer">
+                    <div class="content-foo">
+                        <h4>Cano</h4>
+                        <p>1</p>
+                    </div>
+                    <div class="content-foo">
+                        <h4>Edgar</h4>
+                        <p>2</p>
+                    </div>
+                    <div class="content-foo">
+                        <h4>Abigail</h4>
+                        <p>3</p>
+                    </div>
+                </div>
+                <h2 class="titulo-final">&copy; BDD</h2>
+            </footer>
+            </form>
+        </body>
+</html>

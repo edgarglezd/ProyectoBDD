@@ -1,0 +1,101 @@
+<!-- Este es la seccion que comparten los formularios de maestria y doctorado, que son los 
+    datos generales para el guardado-->
+<fieldset class="cajaFormInt">
+    <legend><b>Datos Personales</b></legend></br>
+        <div class="subForm">
+            <div class="subFormInt">
+                <input class="tex" id ="apellidoP" type="text" value="<%= Guardadosolicitante.apellidoP %>" name="apellidoP"/>
+                <label class="labels">Apellido Paterno</label>
+            </div>
+            <div class="subFormInt">
+                <input class="tex" id ="apellidoM" type="text" value="<%= Guardadosolicitante.apellidoM %>" name="apellidoM"/>
+                <label class="labels">Apellido Materno</label>
+            </div>
+            <div class="subFormInt">
+                <input class="tex" id ="nombres" type="text" value="<%= Guardadosolicitante.nombres %>" name="nombres"/>
+                <label class="labels">Nombres (s)</label>
+            </div>
+        </div></br>
+        <div class="subForm">
+            <div class="subFormInt" id="datei_">
+                <input class="date_" id ="fechaNac" type="date" value="<%= Guardadosolicitante.fechaNac %>" name="fechaNac"/>
+                <label class="labels">Fecha de nacimiento</label>
+            </div>
+
+            <div class="subFormInt">
+                    <input class="tex" id ="lugarNac" type="text" value="<%= Guardadosolicitante.lugarNac %>" name="lugarNac"/>
+                    <label class="labels">Lugar de nacimiento</label>
+            </div>
+            <div class="subFormInt">
+                <input class="tex" id ="nacionalidad" type="text" value="<%= Guardadosolicitante.nacionalidad %>" name="nacionalidad"> 
+                <label class="labels">Nacionalidad</label>
+            </div>
+            <div class="estCivil">
+                <select name="estadoCivil">
+                    <option value="Otro">Otro</option>
+                    <option value="Soltero(a)">Soltero(a)</option>
+                    <option value="Casado(a)">Casado(a)</option>
+                    <option value="Viudo(a)">Viudo(a)</option>
+                    <option value="Unión libre">Unión libre</option>
+                    <option value="Divorciado(a)">Divorciado(a)</option>
+                    <option selected value="<%= Guardadosolicitante.estadoCivil %>"><%= Guardadosolicitante.estadoCivil %></option>
+                </select>
+                <label class="labels">Estado civil</label>
+            </div>
+        </div></br>
+        <div class="subForm">
+            <div class="subFormInt">
+                <input class="tex" id ="curp" oninput = "validarInput(this)" type="text" value="<%= Guardadosolicitante.CURP %>" name="CURP"/>
+                <pre id="resultado"></pre>
+                <label class="labels"> CURP</label>
+            </div>   
+        </div><br/>       
+</fieldset><br/>
+
+<fieldset class="cajaFormInt">
+    <legend><b>Domicilio</b></legend><br />
+    <div class="subForm">
+        <div class="subFormInt">
+            <input class="tex" type="text" value="<%= Guardadosolicitante.calle %>" name="calle"/>
+            <label class="labels">Calle</label>
+        </div>
+        <div class="subFormIntN">
+            <input class="texn" type="text" value="<%= Guardadosolicitante.noExt %>" name="noExt"/>
+            <label class="labels">No. Ext</label>
+        </div>
+        <div class="subFormIntN">
+            <input class="texn" type="text" value="<%= Guardadosolicitante.noInt %>" name="noInt"/>
+            <label class="labels">No. Int</label>
+        </div>                    
+        <div class="subFormInt">
+            <input class="tex" type="text" value="<%= Guardadosolicitante.colonia %>" name="colonia"/>
+            <label class="labels">Colonia</label>
+        </div>
+        <div class="subFormIntCP">
+            <input class="tex" type="text" value="<%= Guardadosolicitante.CP %>" name="CP"/>
+            <label class="labels">Codigo Postal</label>
+        </div>
+        <div class="subFormInt">
+            <input class="tex" type="text" value="<%= Guardadosolicitante.municipio %>" name="municipio"/>
+            <label class="labels">Municipio</label>
+        </div>
+        <div class="subFormInt">
+            <input class="tex" type="text" value="<%= Guardadosolicitante.estado %>" name="estado"/>
+            <label class="labels">Estado</label>
+        </div>
+    </div><br/>
+</fieldset><br/>
+
+<fieldset class="cajaFormInt">
+    <legend><b>Contacto</b></legend><br />
+        <div class="subForm">
+            <div class="subFormInt">
+                <input class="tex" id="telefono" type="tel" value="<%= Guardadosolicitante.telefono %>" name="telefono"/>
+                <label class="labels" >Teléfono</label>
+            </div>
+            <div class="subFormInt">
+                <input class="tex" id="email" type="email" value="<%= Guardadosolicitante.email %>" name="email"/>
+                <label class="labels">Correo electrónico</label>
+            </div>
+        </div><br/>
+</fieldset> 

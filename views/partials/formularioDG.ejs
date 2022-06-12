@@ -1,0 +1,115 @@
+<!-- Este es la seccion que comparten los formularios de maestria y doctorado, que son los 
+    datos generales -->
+<fieldset class="cajaFormInt">
+    <legend><b>Datos Personales</b></legend></br>
+        <div class="subForm">
+            <div class="subFormInt" id = "grupo__apellidoP">
+                <input class="tex" id ="apellidoP" type="text" placeholder="Apellido Paterno" name="apellidoP"/>
+                <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                <label class="labels">Apellido Paterno</label>
+            </div>
+            <div class="subFormInt" id = "grupo__apellidoM">
+                <input class="tex" id ="apellidoM" type="text" placeholder="Apellido Materno" name="apellidoM"/>
+                <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                <label class="labels">Apellido Materno</label>
+            </div>
+            <div class="subFormInt" id = "grupo__nombre123">
+                <input class="tex" id ="nombres" type="text" placeholder="Nombre" name="nombres"/>
+                <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                <label class="labels">Nombres (s)</label>
+            </div>
+        </div></br>
+        <div class="subForm">
+            <div class="subFormInt"  id = "grupo__fechaNac">
+                <input class="date_" id ="fechaNac" type="date" placeholder="" name="fechaNac"/>
+                <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                <label class="labels">Fecha de nacimiento</label>
+            </div>
+            <div class="subFormInt" id = "grupo__lugarNac">
+                    <input class="tex" id ="lugarNac" type="text" placeholder="Lugar de nacmiento" name="lugarNac"/>
+                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                    <label class="labels">Lugar de nacimiento</label>
+            </div>
+            <div class="subFormInt" id = "grupo__nacionalidad">
+                <input class="tex" id ="nacionalidad" type="text" placeholder="Nacionalidad" name="nacionalidad"/> 
+                <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                <label class="labels">Nacionalidad</label>
+            </div>
+            <div class="estCivil">
+                <select name="estadoCivil">
+                    <option value="Otro">Otro</option>
+                    <option value="Soltero(a)">Soltero(a)</option>
+                    <option value="Casado(a)">Casado(a)</option>
+                    <option value="Viudo(a)">Viudo(a)</option>
+                    <option value="Unión libre">Unión libre</option>
+                    <option value="Divorciado(a)">Divorciado(a)</option>
+                </select>
+                <label class="labels">Estado civil</label>
+            </div>
+        </div></br>
+        <div class="subForm">
+            <div class="subFormInt">
+                <input class="tex" id ="curp" oninput = "validarInput(this)" type="text" placeholder="CURP" name="CURP"/>
+                <pre id="resultado"></pre>
+                <label class="labels"> CURP</label>
+            </div>   
+        </div><br/>       
+</fieldset><br/>
+
+<fieldset class="cajaFormInt">
+    <legend><b>Domicilio</b></legend><br />
+    <div class="subForm">
+        <div class="subFormInt" id = "grupo__calle">
+            <input class="tex" type="text" placeholder="Calle" name="calle" id = "calle"/>
+            <i class="formulario__validacion-estado fas fa-times-circle"></i>
+            <label class="labels">Calle</label>
+        </div>
+        <div class="subFormIntN" id = "grupo__noExt">
+            <input class="tex" type="text" placeholder="No. Ext/Edif" name="noExt" id = "noExt"/>
+            <i class="formulario__validacion-estado fas fa-times-circle"></i>
+            <label class="labels">No. Ext</label>
+        </div>
+        <div class="subFormIntN" id = "grupo__noInt">
+            <input class="tex" type="text" placeholder="No. Int/Depto" name="noInt" id = "noInt"/>
+            <i class="formulario__validacion-estado fas fa-times-circle"></i>
+            <label class="labels">No. Int</label>
+        </div>                    
+        <div class="subFormInt" id = "grupo__colonia">
+            <input class="tex" type="text" placeholder="Colonia/Barrio" name="colonia" id = "colonia"/>
+            <i class="formulario__validacion-estado fas fa-times-circle"></i>
+            <label class="labels">Colonia</label>
+        </div>
+        <div class="subFormIntCP" id = "grupo__CP">
+            <input class="tex" type="text" placeholder="Codigo Postal" name="CP" id = "CP"/>
+            <i class="formulario__validacion-estado fas fa-times-circle"></i>
+            <label class="labels">Codigo Postal</label>
+        </div>
+        <div class="subFormInt" id = "grupo__municipio">
+            <input class="tex" type="text" placeholder="Alcaldía/Municipio/Ciudad" name="municipio" id = "municipio"/>
+            <i class="formulario__validacion-estado fas fa-times-circle"></i>
+            <label class="labels">Municipio</label>
+        </div>
+        <div class="subFormInt" id = "grupo__estado">
+            <input class="tex" type="text" placeholder="Estado" name="estado" id = "estado"/>
+            <i class="formulario__validacion-estado fas fa-times-circle"></i>
+            <label class="labels">Estado</label>
+        </div>
+    </div><br/>
+</fieldset><br/>
+
+<fieldset class="cajaFormInt">
+    <legend><b>Contacto</b></legend><br />
+        <div class="subForm">
+            <div class="subFormInt" id = "grupo__telefono">
+                <input class="tex" id="telefono" type="tel" placeholder="Telefono" name="telefono" id = "telefono"/>
+                <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                <label class="labels" >Teléfono</label>
+            </div>
+            <div class="subFormInt" id = "grupo__email">
+                <input class="tex" id="email" type="email" placeholder="Correo electrónico/Cuenta SKYPE" name="email" id = "email"/>
+                <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                <label class="labels">Correo electrónico</label>
+            </div>
+        </div><br/>
+        
+</fieldset> 

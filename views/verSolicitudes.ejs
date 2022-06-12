@@ -1,0 +1,48 @@
+<!--En esta vista se muestran al coordinador las solicitudes que se enviaron y se deben validar-->
+<!DOCTYPE html>
+<html lang="en">
+<link>
+<%- include ('partials/head.ejs') %>
+<title><%- title %></title>
+<link rel="stylesheet" href="../css/estilotabla.css">
+<body>
+    <%- include ('partials/header.ejs') %>
+    <h1 style="text-align: center;">SOLICITUDES PARA VALIDACION</h1>
+
+    <table class="table">
+
+        <tr class="header">
+            <%if (solicitantes.length > 0) {%>
+          <th class="cell">CURP  </th>      
+          <th class="cell">solicitantes</th>
+          <th class="cell">CV    </th>     
+          <th class="cell">STATUS</th>
+          <th class="cell"></th>
+          <th class="cell"></th>
+
+      
+        </tr>
+        
+                <% solicitantes.forEach(function(solicitantes) { %>
+                    <tr class="row">
+                    <td class="cell"> <%= solicitantes.CURP %></td>                                   
+                    <td class="cell"><%= solicitantes.registro %></td>
+                    <td class="cell"> Aqui va nombre de archivo(s)</td>               
+                    <td class="cell"><%= solicitantes.status %></td>
+                    <td><a class="btn" value="Validar" id="validar" href="/Validaciones/<%- solicitantes.CURP %>"><label>Validar</label></td>
+                    <td><a class="btn" value="Validar" id="exit" href="/delete/<%- solicitantes.CURP %>"><label>Eliminar</label></td>
+                    </tr>                
+                <%})%>
+            
+            <%} else {%>
+                <h4 style="text-align: center;">Aun no hay elementos para evualuar</h4>
+                <%}%>
+                </div>
+              </div>
+        </tr>        
+      </table>
+    <script type="text/javascript" src="../js/funcionesPestañas.js"></script>
+    <script type="text/javascript" src="../js/Validaciones.js"></script>
+</body>
+
+</html>

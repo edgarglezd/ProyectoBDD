@@ -1,0 +1,27 @@
+{
+  "name": "basededatos",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "express-fileupload": "^1.2.0",
+    "express-handlebars": "^6.0.6",
+    "mongoose": "^6.3.4",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.2",
+    "uuid4": "^2.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6",
+    "sass": "^1.30.0"
+  },
+  "scripts": {
+    "start": "node src",
+    "dev": "nodemon src"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

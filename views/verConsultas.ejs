@@ -1,0 +1,46 @@
+<!--En esta vista se muestran todas las solicitudes y su estatus, con el login solo se mostrará la solitud correspondiente a la CURP-->
+<!DOCTYPE html>
+<html lang="en">
+<link>
+<%- include ('partials/head.ejs') %>
+<title><%- title %></title>
+<link rel="stylesheet" href="../css/estilotabla.css">
+<body>
+    <%- include ('partials/header.ejs') %>
+    <h1 style="text-align: center;">ESTATUS DE LA SOLICITUD</h1>
+
+    <table class="table">
+
+        <tr class="header">
+            <%if (solicitantes.length > 0) {%>
+          <th class="cell">CURP  </th>      
+          <th class="cell">solicitantes</th>
+          <th class="cell">CV    </th>     
+          <th class="cell">STATUS</th>
+          <th class="cell"></th>
+
+      
+        </tr>
+        <!--se extrae la información del archivo solicitantes.json-->
+                <% solicitantes.forEach(function(solicitantes) { %>   
+                    <tr class="row">
+                    <td class="cell"> <%= solicitantes.CURP %></td>                                   
+                    <td class="cell"><%= solicitantes.registro %></td>
+                    <td class="cell"> Aqui va nombre de archivo(s)</td>               
+                    <td class="cell"><%= solicitantes.status %></td>
+                    <td><a class="btn btn-danger" value="Salir" id="salir" onclick="location.href='/'"><label>Salir</label></td>
+                    </tr>                
+                <%})%>
+            
+            <%} else {%>
+                <h4 style="text-align: center;">Aun no hay elementos para evualuar</h4>
+                <%}%>
+                </div>
+              </div>
+        </tr>        
+      </table>
+    <script type="text/javascript" src="../js/funcionesPestañas.js"></script>
+    <script type="text/javascript" src="../js/Validaciones.js"></script>
+</body>
+
+</html>

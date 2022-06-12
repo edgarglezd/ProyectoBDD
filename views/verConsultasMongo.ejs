@@ -1,0 +1,48 @@
+<!--En esta vista se muestran todas las solicitudes y su estatus, con el login solo se mostrará la solitud correspondiente a la CURP-->
+<!DOCTYPE html>
+<html lang="en">
+<link>
+<%- include ('partials/head.ejs') %>
+<title><%- title %></title>
+<link rel="stylesheet" href="../css/estilotabla.css">
+<body>
+    <%- include ('partials/header.ejs') %>
+    <h1 style="text-align: center;">Resultado</h1>
+
+    <table class="table">
+
+        <tr class="header">
+            <%if (Consultaprueba.length > 0) {%>
+          <th class="cell">ID  </th>      
+          <th class="cell">Titulo</th>
+          <th class="cell">Lenguaje   </th>     
+          <th class="cell">Año </th>
+          <th class="cell">Raiting </th>
+          <th class="cell"></th>
+
+      
+        </tr>
+      
+                <% Consultaprueba.forEach(function(Consultaprueba) { %>   
+                    <tr class="row">
+                    <td class="cell"> <%= Consultaprueba._id %></td>                                   
+                    <td class="cell"><%= Consultaprueba.TITLE_NAME %></td>
+                    <td class="cell"> <%= Consultaprueba.LANGUAGE %></td>               
+                    <td class="cell"><%= Consultaprueba.RELEASED %></td>
+                    <td class="cell"><%= Consultaprueba.RATING %></td>
+                    <td><a class="btn btn-danger" value="Salir" id="salir" onclick="location.href='/'"><label>Salir</label></td>
+                    </tr>                
+                <%})%>
+            
+            <%} else {%>
+                <h4 style="text-align: center;">Consulta Vacia</h4>
+                <%}%>
+                </div>
+              </div>
+        </tr>        
+      </table>
+    <script type="text/javascript" src="../js/funcionesPestañas.js"></script>
+    <script type="text/javascript" src="../js/Validaciones.js"></script>
+</body>
+
+</html>

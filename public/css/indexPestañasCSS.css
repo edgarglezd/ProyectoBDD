@@ -1,0 +1,307 @@
+/*ESTILOS PARA LAS PESTAÑAS DONDE SE INTRODUCE LA INFORMACION*/
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+body, .date_, select, header, textarea, .opc:checked { /*Asignar mismo color a todos los componentes*/
+ background: rgb(226, 197, 193);
+}
+
+header {
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    padding:5px;
+}
+
+#imgIPN{
+    width: 10%;
+    height: 10%;
+    margin: 0.5%;
+    float: left;
+    margin-left: 2.5%;
+}
+
+#imgUPIITA{
+    width: 10%;
+    height: 10%;
+    margin: 0.5%;
+    float: left;
+}
+
+#nombreInst, #requisito{
+    width: 75%;
+    text-align: center;
+    float: left;
+    font-size: 16px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color:#7c1c1c;
+}
+
+.form{
+  text-align: center;
+  font-size: 18px;
+  margin: 9px;
+  width: 40%;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bv{
+  text-align: center;
+  font-size: xx-large;
+  clear: left;
+}
+
+#texIPN{
+  height:100%;
+  width:100%;
+  font-size: 40px;
+}
+
+.content{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: -100px;
+}
+
+.center{
+  display: flex;
+  width: 100%;
+  min-width: 250px;
+  height: 50%;
+  position: relative;
+  align-items: center;
+  margin-top: 0px;
+}
+
+.tabs{
+  width: 50%;
+  height: 20%;
+  min-width: 23.5%;
+  text-align: center;
+  cursor: pointer;
+  background: #750808;
+  color:#FFF;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+}
+
+.bodyTabs{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  background: #ffffff;
+  position: absolute;
+  left: 0%;
+  width: 100%;
+  flex-direction: column;
+}
+
+.tabs.sky{ /*Clase de javascript*/
+  background: #ffffff;
+  color: black;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+}
+
+.tabs.close .bodyTabs{
+  display: none;
+}
+
+.inicio{
+  width:85%;
+  margin:auto;
+  display: flex;
+  text-align: center;
+}
+
+.navegacion{
+  width:85%;
+  margin:auto;
+  text-align: center;
+  align-items: flex-end;
+}
+
+.legend_{
+  text-align: center;
+}
+
+.cajaForm{
+  flex-direction: column;
+  width: 100%;
+  min-width: 80%;
+  border-radius: 10px;
+  border: 2px solid black;
+  display: none;
+}
+
+.cajaFormInt{
+  flex-direction: column;
+  width: 95%;
+  min-width: 80%;
+  border-radius: 10px;
+  border: 2px solid black;
+  display: flex;
+}
+
+.subForm, #subFormAño{
+  display: flex;
+  flex-direction: row;
+  min-width: 50%;
+  align-items: center;
+}
+
+.subForm{
+  width: 100%;
+}
+
+#subformAño{
+  width: 10%;
+}
+
+.labels{
+  text-align: center;
+  margin: 0% 1%;
+}
+
+.labels_{
+  width: 30%;
+  text-align: left;
+  margin: 0% 1%;
+}
+
+.labelsC{
+  width: 13%;
+  text-align: left;
+  margin: 0% 1%;
+}
+
+.labelsN{
+  width: 22%;
+  text-align: left;
+  margin: 0% 1%;
+}
+
+.subFormInt, .estCivil, .subFormIntN, .subFormIntCP{
+  display: flex;
+  flex-direction: column;
+  margin: 0% 1%;
+  text-align: center;
+  align-items: center;
+}
+
+.subFormInt{
+  width: 33%;
+}
+
+.estCivil{
+  width: 10%;
+  margin-left: 1.5%;
+}
+
+.subFormIntN{
+  width: 10%;
+}
+
+.subFormIntCP{
+  width: 20%;
+}
+
+.texn, .tex, #tx, .date_, select{
+  display: flex;
+  margin: 0% 1% 0% 1%; /*arriba derecha abajo izquierda*/
+  border: none;
+  background: none;
+  border-bottom: 1.5px solid #610d0d;
+  outline: none;
+  text-align: center;
+}
+
+.select_, .tex, .texn, .labels{
+  width: 98%;
+}
+
+#tx{
+  width: 80%
+}
+
+#telefono{
+  width: 50%;
+}
+
+.texa, .texaC{
+  resize: none;
+  height: 3%;
+  min-width: 4px;
+  border: 1px solid gray;
+  border-radius: 10px;
+  float: left;
+  margin-left: 0%;
+}
+
+.texa{
+  width: 80%;
+}
+
+.texaC{
+  width: 95%;
+}
+#año {
+  width: 10%;
+}
+
+#iniciar, #guardar, #exit, #enviar{
+  width: 150px;
+  height: 30px;
+  color: black;
+  border-radius: 20px;
+  text-align: center;
+}
+
+#exit{
+  background: rgb(209, 48, 48);
+  border: 1px solid rgb(146, 20, 20);
+}
+
+#iniciar{
+  background: rgb(0, 69, 218);
+  border: 1px solid rgb(1, 10, 61);
+}
+
+#enviar{
+  background: green;
+  border: 1px solid rgb(20, 90, 20);
+}
+
+#guardar{
+  background: rgb(170, 161, 129);
+  border: 1px solid rgb(61, 36, 3);
+}
+
+#iniciar:hover, #guardar:hover, #enviar:hover, #exit:hover{
+  color: white;
+}
+
+#iniciar:focus, #guardar:focus, #enviar:focus, #exit:focus{
+  outline: none;
+}
+
+#formulario{
+  display: none; /*Se cambia a none, para usar la funcion render en js*/
+}
+
+#resultado {
+  background-color: red;
+  color: white;
+  font-weight: bold;
+}
+#resultado.ok {
+  background-color: green;
+}

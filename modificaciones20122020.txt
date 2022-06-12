@@ -1,0 +1,3 @@
+Vista index.js por botones y se eliminar el menu de todas las vistas
+Vista coordinador.ejs se agrega boton eliminar para que el solicitante pueda volver a enviar su solicitud
+router/index.js se agrega funcion para guardar archivos en la carpeta datos/CV_aspirantes. 

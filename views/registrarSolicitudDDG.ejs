@@ -1,0 +1,256 @@
+<!--VISTA REQUERIDA PARA HABILITAR LA FUNCION DE GUARDAR TEMPORALMENTE-->
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include ('partials/head.ejs') %>
+    <title>
+        <%- title %>
+    </title>
+
+    <body>
+        <%- include ('partials/header.ejs') %>
+        <% var f = new Date() %>
+        </br><h1 id="requisito" style="font-size: 50px;">BIENVENIDO</h1></br>
+                <div class="subForm" id="texMaestria">
+                    <p id="requisito"><b>SOLICITUD DE ADMISIÓN AL PROCESO DE INGRESO AL SEMESTRE A-2021 MAESTRIA</b></p>
+                    <button class="btn" id="iniciar" href="#" onclick="renderFormularioIGMa()">INICIAR</button>
+                </div>
+                <div class="subForm" id="texDoctorado">
+                    <p id="requisito"><b>SOLICITUD DE ADMISIÓN AL PROCESO DE INGRESO AL SEMESTRE A-2021 DOCTORADO</b>
+                    </p>
+                    <button class="btn" id="iniciar" href="#" onclick="renderFormularioIGDo()">INICIAR</button>
+                </div>
+                <div class="subForm" id="texConsulta">
+                    <p id="requisito"><b>VER STATUS DE TU SOLICITUD</b>
+                    </p>
+                    <button class="btn" id="iniciar"><a class="sel" href="/Consulta">IR</a></button>
+                </div>
+
+                <div class="subForm" id="texEditar">
+                    <p id="requisito"><b>EDITAR SOLICITUD</b>
+                    </p>
+                    <button class="btn" id="iniciar"><a class="sel" href="/editar">EDITAR</a></button>
+                </div>
+
+                <form class="content" id="formulario" method="POST" enctype="multipart/form-data">
+                    <!--  method="post" enctype="multipart/form-data"-->
+                    <div class="center">
+                        <div class="tabs" onclick="cambiarPestaña(1)">
+                            <h3>Datos Generales</h3>
+                            <div class="bodyTabs"></br></br>
+                                <%- include ('partials/formularioDGG.ejs') %>
+                                    <%- include ('partials/botones.ejs') %>
+                                        <%- include ('partials/footer.ejs') %>
+                            </div>
+                        </div>
+
+                        <div class="tabs" id="IGMaestria" onclick="cambiarPestaña(2)" >
+                            <h3>Informacion General</h3>
+                            <div class="bodyTabs"></br>
+                                <div class="subFormInt" id="formMaes">
+                                    <input id="tx" type="text" placeholder="Maestria" name="maestria"/>
+                                    <label class="labels">Maestria</label>
+                                </div><br />
+                                <fieldset class="cajaFormInt">
+                                    <legend><b>Institución</b></legend><br />
+                                    <div class="subForm">
+                                        <div class="subFormInt">
+                                            <input class="tex" type="text" placeholder="Nombre de la institución"
+                                                name="institucionSuperior" />
+                                            <label class="labels">Institución de estudios superiores</label>
+                                        </div>
+                                        <div class="subFormIntCP">
+                                            <input class="tex" type="text" placeholder="País de la Institución"
+                                                name="paisInst" />
+                                            <label class="labels">País de la Institución</label>
+                                        </div>
+                                        <div class="subFormInt">
+                                            <input class="tex" type="text" placeholder="Titulo" name="titulo" />
+                                            <label class="labels">Título</label>
+                                        </div>
+                                        <div class="subFormInt">
+                                            <input class="tex" type="text" placeholder="Carrera" name="carrera" />
+                                            <label class="labels">Carrera</label>
+                                        </div>
+                                    </div></br>
+                                </fieldset><br />
+
+                                <fieldset class="cajaFormInt">
+                                    <legend><b>Experiencia</b></legend><br />
+                                    <div class="subForm">
+                                        <label class="labelsC">Experiencia profesional</label>
+                                        <textarea class="texaC" placeholder="Escriba aqui su experiencia profesional"
+                                            name="expProfesional"></textarea>
+                                    </div><br />
+                                    <div class="subForm">
+                                        <label class="labelsC">Experiencia Docente</label>
+                                        <textarea class="texaC" placeholder="Escriba aqui su experiencia docente"
+                                            name="expDocente"></textarea>
+                                    </div><br />
+                                </fieldset><br />
+
+                                <fieldset class="cajaFormInt"></br>
+                                    <div class="subForm">
+                                        <label class="labelsN">¿Has asistido a los cursos propedéuticos de este
+                                            Departamento
+                                            anteriormente?</label>
+                                        <label>
+                                            <input class="opc" type="checkbox" id="check1" name="checkSi"
+                                                onclick="deshabilitar()">SI</label><label><input class="opc"
+                                                type="checkbox" id="check2" name="checkNo"
+                                                onclick="deshabilitar()">NO</label>
+                                        <div class="subFormInt" id="año">
+                                            <input class="texn" type="tex" placeholder="Año" name="anho" />
+                                            <label class="labels_">Año</label>
+                                        </div>
+                                        <div class="subFormInt">
+                                            <input class="tex" type="text"
+                                                placeholder="¿A qué línea de investigación desea integrarse?"
+                                                name="lineaInves" />
+                                            <label class="labels">Línea de investigación</label>
+                                        </div>
+                                    </div><br />
+
+                                    <div class="subForm">
+                                        <label class="labelsN">Motivación para integrarse al posgrado</label>
+                                        <textarea class="texa" placeholder="Escriba aquí sus motivaciones"
+                                            name="motivacionPosg"></textarea>
+                                    </div><br />
+                                    <div class="subForm">
+                                        <div class="subFormInt">
+                                            <input type="file" placeholder="" name="fileCV" id="fileCVid"/>
+                                            <label class="labels">Anexa CV con fotografía</label>
+                                            <label class="labels">Tam. máx. 1MB, ext ".pdf"</label>
+                                        </div>
+                                        <div class="subFormInt">
+                                            <input id="fechaSolicitud" name="fechaSolicitud" class="tex" value="<%= f.getDate() + "-" + (f.getMonth() + 1) + "-" + f.getFullYear() %>" readonly />
+                                            <label class="labels">Fecha solicitud</label>
+                                        </div>
+                                        <div class="subFormInt">
+                                            <input class="tex" type="" id="firmaSolicitante" placeholder="" name="firmaSolicitante" />
+                                            <label class="labels">Firma Solicitante</label>
+                                        </div>
+
+                                        <div class="subFormInt" name="AlistarCampoM">
+                                            <input type="checkbox" name="AlistarM" id = "AlistarM"/>
+                                            <label class="labels">Listo</label>
+                                        </div>
+
+                                    </div>
+                                </fieldset>
+                                <%- include ('partials/botones.ejs') %>
+                                    <%- include ('partials/footer.ejs') %>
+                            </div>
+                        </div>
+
+                        <div class="tabs" id="IGDoctorado" onclick="cambiarPestaña(3)">
+                            <h3>Informacion General</h3>
+                            <div class="bodyTabs"></br>
+                                <div class="subFormInt" id="formMaes">
+                                    <input id="tx" type="text" value="<%= Guardadosolicitante.doctorado %>" name="doctorado" />
+                                    <label class="labels">Doctorado</label>
+                                </div><br />
+                                <fieldset class="cajaFormInt">
+                                    <legend><b>Institución</b></legend><br />
+                                    <div class="subForm">
+                                        <div class="subFormInt">
+                                            <input class="tex" type="text" value="<%= Guardadosolicitante.institucionMaestria %>"
+                                                name="institucionMaestria" />
+                                            <label class="labels">Institución de Maestría</label>
+                                        </div>
+                                        <div class="subFormIntCP">
+                                            <input class="tex" type="text" value="<%= Guardadosolicitante.paisInst %>"
+                                                name="paisInst" />
+                                            <label class="labels">País de la Institución</label>
+                                        </div>
+                                        <div class="subFormInt">
+                                            <input class="tex" type="text" value="<%= Guardadosolicitante.graduado %>" />
+                                            <label class="labels">Graduado</label>
+                                        </div>
+                                        <div class="subFormInt">
+                                            <input class="tex" type="text" value="<%= Guardadosolicitante.posgrado %>" name="posgrado" />
+                                            <label class="labels">Posgrado</label>
+                                        </div>
+                                    </div></br>
+                                </fieldset><br />
+
+                                <fieldset class="cajaFormInt">
+                                    <legend><b>Experiencia</b></legend><br />
+                                    <div class="subForm">
+                                        <label class="labelsC">Experiencia profesional</label>
+                                        <textarea class="texaC" placeholder=""
+                                            name="expProfesional"><%= Guardadosolicitante.expProfesional %></textarea>
+                                    </div><br />
+                                    <div class="subForm">
+                                        <label class="labelsC">Experiencia Docente</label>
+                                        <textarea class="texaC" placeholder=""
+                                            name="expDocente"><%= Guardadosolicitante.expDocente %></textarea>
+                                    </div><br />
+                                </fieldset><br />
+
+                                <fieldset class="cajaFormInt"></br>
+                                    <div class="subForm">
+                                        <label class="labelsN">¿Has asistido a los cursos propedéuticos de este Departamento
+                                        anteriormente?</label>
+                                        <input class="opc" type="checkbox" id="check1" name="checkSi"
+                                            onclick="deshabilitar()">SI</label><label><input class="opc" type="checkbox"
+                                                id="check2" name="checkNo" onclick="deshabilitar()">NO</label>
+                                        
+                                        
+                                        
+                                                <div class="subFormInt" id="año">
+                                            <input class="texn" type="tex" value="<%= Guardadosolicitante.anho %>" name="anho" />
+                                            <label class="labels_">Año</label>
+                                        </div>
+                                        <div class="subFormInt">
+                                            <input class="tex" type="text"
+                                            value="<%= Guardadosolicitante.lineaInves %>"
+                                                name="lineaInves" />
+                                            <label class="labels">Línea de investigación</label>
+                                        </div>
+                                    </div><br />
+
+                                    <div class="subForm">
+                                        <label class="labelsN">Motivación para integrarse al posgrado</label>
+                                        <textarea class="texa" placeholder=""
+                                            name="motivacionPosg"><%= Guardadosolicitante.motivacionPosg %></textarea>
+                                    </div><br />
+                                    <div class="subForm">
+                                        <div class="subFormInt">
+                                            <input type="file" placeholder="" name="fileCV" id="fileCVid" />
+                                            <label class="labels">Anexa CV con fotografía</label>
+                                            <label class="labels">Tam. máx. 1MB, ext ".pdf"</label>
+                                        </div>
+                                        <div class="subFormInt">
+                                            <label class="labelsN">Investigaciones</label>
+                                        <textarea class="texa" 
+                                            name="investigaciones"><%= Guardadosolicitante.investigaciones %></textarea>
+                                        </div>
+
+                                        <div class="subFormInt">
+                                            <input id="fechaSolicitud" name="fechaSolicitud" class="tex" value="<%= f.getDate() + "-" + (f.getMonth() + 1) + "-" + f.getFullYear() %>" readonly />
+                                            <label class="labels">Fecha solicitud</label>
+                                        </div>
+                                        
+                                        <div class="subFormInt" name="firmaSolicitante">
+                                            <input class="tex" id="firmaSolicitante" type="" value="<%= Guardadosolicitante.firmaSolicitante %>" name="firmaSolicitante" />
+                                            <label class="labels">Firma Solicitante</label>
+                                        </div>
+                                        <div class="subFormInt" name="AlistarCampoD">
+                                            <input type="checkbox" name="AlistarD" id = "AlistarD"/>
+                                            <label class="labels">Listo</label>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                <%- include ('partials/botones.ejs') %>
+                                    <%- include ('partials/footer.ejs') %>
+                            </div>
+                        </div>
+
+                    </div>
+                </form>
+                <script type="text/javascript" src="../js/funcionesPestañas.js"></script>
+                <script type="text/javascript" src="../js/Validaciones.js"></script>
+    </body>
+
+</html>
